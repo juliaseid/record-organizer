@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+<div class="container">
+  <h1>To Do List Item Details: </h1>
+
+  <h2>@Model["record"].Name</h2>
+  <h3>Artist: @Model["artist"].FullName</h3>
+
+<a href='/artists/@Model["artist"].Id/records/new'>Add another record</a>
+<a href = '/artists'>View all Artists</a>
+</div>

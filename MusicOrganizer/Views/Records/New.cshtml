@@ -1,0 +1,11 @@
+@{
+  Layout = "_Layout";
+}
+<div class="container">
+  <form action="/artists/@Model.Id/records"  method="post" >
+    <input id="artistId" name="artistId" type="hidden" value="@Model.Id">
+    <label for="recordName" > Enter the name of the Record  </label>
+    <input type="text" name="recordName" id="recordName" required>
+    <button type="submit"> Submit </button>
+  </form> 
+</div>

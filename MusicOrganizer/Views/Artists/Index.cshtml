@@ -1,14 +1,27 @@
+@using MusicOrganizer.Models;
+
 @{
   Layout = "_Layout";
 }
-
+<div class="container">
 <h1>Your Artists: </h1>
 @if (@Model.Count == 0)
 {
   <h3>No categories have been added yet!</h3>
 }
-<ul>
 @foreach (Artist artist in Model)
+{
+  <h3><a href='/artists/@artist.Id'>@artist.FullName</a></h3>
+}
+
+<p><a href="/">Back Home</a></p>
+</div>
+
+
+
+
+
+@* @foreach (Artist artist in Model)
 {
   <li>@artist.FullName
  
@@ -32,4 +45,4 @@
 </ul>
 
 <p><a href="/artist/new">Add another artist</a></p>
-<p><a href="/record/new">Add another artist</a></p>
+<p><a href="/record/new">Add another artist</a></p> *@  //not sure
