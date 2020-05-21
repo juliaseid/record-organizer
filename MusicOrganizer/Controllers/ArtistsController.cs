@@ -30,7 +30,7 @@ namespace MusicOrganizer.Controllers
     [HttpGet("/artists/{id}")]
     public ActionResult Show(int id)
     {
-      Dictionary<string, object> model = new Dictionary<string, object>;
+      Dictionary<string, object> model = new Dictionary<string, object>();
       Artist selectedArtist = Artist.Find(id);
       List<Record> discography = selectedArtist.Discography;
       model.Add("artist", selectedArtist);
