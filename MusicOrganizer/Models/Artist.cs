@@ -34,18 +34,6 @@ namespace MusicOrganizer.Models
       Discography.Add(record);
     }
     
-    // public string FullName()
-    // {
-    //   if(LastName.Length > 0)
-    //   {
-    //     return $"{FirstName}  {LastName}";
-    //     }
-    //   else 
-    //   {
-    //     return FirstName;
-    //    }
-    // }
-
 
   }
 }

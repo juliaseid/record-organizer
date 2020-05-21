@@ -1,3 +1,35 @@
 @{
   Layout = "_Layout";
 }
+
+<h1>Your Artists: </h1>
+@if (@Model.Count == 0)
+{
+  <h3>No categories have been added yet!</h3>
+}
+<ul>
+@foreach (Artist artist in Model)
+{
+  <li>@artist.FullName
+ 
+
+  <h2>Discography:</h2>
+  <ul>
+  //nested allowed?
+  //not sure
+  //i guess we'll find out lol
+  // ul needs to be within li
+  
+  //
+  @foreach(Record record in artist._instances)
+  {
+    <li>@record.name</li>
+  }
+  </ul>
+  </li>
+  
+}
+</ul>
+
+<p><a href="/artist/new">Add another artist</a></p>
+<p><a href="/record/new">Add another artist</a></p>
