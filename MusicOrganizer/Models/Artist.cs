@@ -34,6 +34,23 @@ namespace MusicOrganizer.Models
       Discography.Add(record);
     }
 
+    public static List<Artist> GetAll()
+    {
+      return _instances;
+    }
+
+    public static Artist Find(int id)
+    {
+      Artist cat = null;
+      foreach (Artist c in _instances)
+      {
+        if (c.Id == id)
+        {
+          cat = c;
+        }
+      }
+      return cat;
+    }
 
   }
 }

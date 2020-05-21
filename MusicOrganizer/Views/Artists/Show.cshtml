@@ -1,0 +1,21 @@
+@using MusicOrganizer.Models;
+
+@{
+  Layout = "_Layout";
+}
+<div class="container">
+
+<h3>You own the following Albums by @Model["artist"].FullName</h3>
+
+<ol>
+@foreach (Record record in @Model["records"])
+{
+  <li><a href='/artists/@Model["artist"].Id/records/@record.Id'>@record.Name</a></li>
+}
+</ol>
+
+<p><a href='/artists/@Model["artist"].Id/records/new'>Add a new album</a></p>
+<p><a href='/artists'>Return to Artist List</a></p>
+<p><a href='/'>Return to Main Page</a></p>
+
+</div>

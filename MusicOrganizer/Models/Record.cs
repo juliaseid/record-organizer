@@ -24,14 +24,18 @@ namespace MusicOrganizer.Models
       return _instances;
     }
 
-    // public Record (string name)
-    // {
-    //   Name = name;
-    //  // ThisArtist = new Artist("Unknown");
-    //   _currentId++;
-    //   Id = _currentId;
-    //   _instances.Add(this);
-    // }
+    public static Record Find(int id)
+    {
+      Record cat = null;
+      foreach (Record c in _instances)
+      {
+        if (c.Id == id)
+        {
+          cat = c;
+        }
+      }
+      return cat;
+    }
 
   }
 
