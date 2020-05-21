@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+@using MusicOrganizer.Models;
+<form action="/record/create">
+<select name="selectName" id="selectName">
+  @foreach(Artist artist in @Model.GetAll())
+  {
+  <option id='@artist.Id' value='@artist.Id'> @artist.FullName </option>
+  }
+</select>
+<button type="submit">Add this Artist</button>
+</form>
+
+<form action="/artist/create" method=post>
+ <label for="firstName" > Enter First or Only name of the Artist </label>
+  <input type="text" name="firstName" required>
+  <label for="lastName" > Enter the Last Name of the Artist </label>
+  <input type="text" name="lastName" placeholder="Optional">
+  <button type="submit">Add New Artist</button>
+</form>
