@@ -3,8 +3,6 @@ using MusicOrganizer.Models;
 using System.Collections.Generic;
 using System;
 
-
-
 namespace MusicOrganizer.Tests
 {
   [TestClass]
@@ -14,6 +12,11 @@ namespace MusicOrganizer.Tests
       public void Dispose()
     {
       Record.ClearAll();
+    }
+
+    public RecordTest()
+    {
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=epicodus;port=3306;database=music_organizer_test;";
     }
 
     [TestMethod]
