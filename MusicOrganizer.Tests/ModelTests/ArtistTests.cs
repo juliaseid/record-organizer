@@ -5,7 +5,7 @@ using System;
 namespace MusicOrganizer.Tests
 {
 
-  [TestClass]
+  //[TestClass]
   public class ArtistTests : IDisposable
   {
       public void Dispose()
