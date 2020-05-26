@@ -15,7 +15,7 @@ namespace MusicOrganizer.Tests
       Record.ClearAll();
     }
 
-    public void RecordTest()
+    public RecordTests()
     {
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=epicodus;port=3306;database=music_organizer_test;";
     }
@@ -63,22 +63,24 @@ namespace MusicOrganizer.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
-    // [TestMethod]
-    // public void GetAll_ReturnsItems_RecordList()
-    // {
-    //   //Arrange
-    //   string name01 = "Mow the lawn";
-    //   string name02 = "Sweep the porch";
-    //   Record newRecord1 = new Record(name01);
-    //   Record newRecord2 = new Record(name02);
-    //   List<Record> newList = new List<Record> {newRecord1, newRecord2};
+    [TestMethod]
+    public void GetAll_ReturnsRecords_RecordList()
+    {
+      //Arrange
+      string name01 = "Mow the lawn";
+      string name02 = "Sweep the porch";
+      Record newRecord1 = new Record(name01);
+      newRecord1.Save();
+      Record newRecord2 = new Record(name02);
+      newRecord2.Save();
+      List<Record> newList = new List<Record> {newRecord1, newRecord2};
 
-    //   //Act
-    //   List<Record> result = Record.GetAll();
+      //Act
+      List<Record> result = Record.GetAll();
 
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
 
     // [TestMethod]
     // public void GetId_RecordsInstantiateWithAnIdAndGetterReturns_Int()

@@ -6,7 +6,7 @@ namespace MusicOrganizer.Models
   public class Record
   {
     public string Name { get; set; }
-    public int Id { get; }
+    public int Id { get; set; }
  
     public Record(string name)
     {
@@ -28,8 +28,9 @@ namespace MusicOrganizer.Models
       else
       {
         Record newRecord = (Record) otherRecord;
+        bool idEquality = (this.Id == newRecord.Id);
         bool nameEquality = (this.Name == newRecord.Name);
-        return nameEquality;
+        return (idEquality && nameEquality);
       }
     }
 
@@ -88,7 +89,7 @@ namespace MusicOrganizer.Models
       name.Value = this.Name;
       cmd.Parameters.Add(name);    
       cmd.ExecuteNonQuery();
-      // Id = cmd.LastInsertedId;
+      Id = (int)cmd.LastInsertedId;
       // End new code
       conn.Close();
       if (conn != null)
