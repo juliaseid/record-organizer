@@ -44,6 +44,7 @@ namespace MusicOrganizer.Controllers
       Dictionary<string, object> model = new Dictionary<string, object>();
       Artist foundArtist = Artist.Find(artistId);
       Record newRecord = new Record(recordName);
+      newRecord.Save();
       foundArtist.AddRecord(newRecord);
       List<Record> discography = foundArtist.Discography;
       model.Add("records", discography);

@@ -96,21 +96,20 @@ namespace MusicOrganizer.Tests
     //   Assert.AreEqual(1, result);
     // }
 
-    // [TestMethod]
-    // public void Find_ReturnsCorrectItem_Record()
-    // {
-    //   //Arrange
-    //   string name01 = "Walk the dog";
-    //   string name02 = "Wash the dishes";
-    //   Record newRecord1 = new Record(name01);
-    //   Record newRecord2 = new Record(name02);
+  [TestMethod]
+    public void Find_ReturnsCorrectRecordFromDatabase_Record()
+    {
+      //Arrange
+      Record newRecord = new Record("Mow the lawn");
+      newRecord.Save();
+      Record newRecord2 = new Record("Wash dishes");
+      newRecord2.Save();
 
-    //   //Act
-    //   Record result = Record.Find(2);
-
-    //   //Assert
-    //   Assert.AreEqual(newRecord2, result);
-    // }
+      //Act
+      Record foundRecord = Record.Find(newRecord.Id);
+      //Assert
+      Assert.AreEqual(newRecord, foundRecord);
+    }
 
     [TestMethod]
     public void Equals_ReturnsTrueIfNamesAreTheSame_Record()
