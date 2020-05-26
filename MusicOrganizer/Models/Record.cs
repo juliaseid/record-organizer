@@ -6,16 +6,13 @@ namespace MusicOrganizer.Models
   {
     public string Name { get; set; }
     public int Id { get; }
-    //public Artist ThisArtist { get; set; }
-    private static int _currentId = 0;
     private static List<Record> _instances = new List<Record> { };
 
     public Record(string name)
     {
       Name = name;
-      _currentId++;
-      Id = _currentId;
       _instances.Add(this);
+      Id = _instances.Count;
     }
 
     public static List<Record> GetAll()
@@ -23,17 +20,14 @@ namespace MusicOrganizer.Models
       return _instances;
     }
 
-    public static Record Find(int id)
+    public static Record Find(int searchId)
     {
-      Record cat = null;
-      foreach (Record c in _instances)
-      {
-        if (c.Id == id)
-        {
-          cat = c;
-        }
-      }
-      return cat;
+      return _instances[searchId-1];
+    }
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
     }
 
   }

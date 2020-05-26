@@ -9,25 +9,22 @@ namespace MusicOrganizer.Models
     public string FullName { get; set; }
     public List<Record> Discography = new List<Record> { };
     public int Id { get; }
-    private static int _currentId = 0;
     private static List<Artist> _instances = new List<Artist> { };
 
     public Artist(string first)
     {
       FirstName = first;
       FullName = first;
-      _currentId++;
-      Id = _currentId;
       _instances.Add(this);
+      Id = _instances.Count;
     }
     public Artist(string first, string last)
     {
       FirstName = first;
       LastName = last;
       FullName = $"{first} {last}";
-      _currentId++;
-      Id = _currentId;
       _instances.Add(this);
+      Id = _instances.Count;
     }
     public void AddRecord(Record record)
     {
@@ -39,17 +36,14 @@ namespace MusicOrganizer.Models
       return _instances;
     }
 
-    public static Artist Find(int id)
+    public static Artist Find(int searchId)
     {
-      Artist cat = null;
-      foreach (Artist c in _instances)
-      {
-        if (c.Id == id)
-        {
-          cat = c;
-        }
-      }
-      return cat;
+      return _instances[searchId-1];
+    }
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
     }
 
   }

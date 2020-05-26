@@ -6,8 +6,13 @@ namespace MusicOrganizer.Tests
 {
 
   [TestClass]
-  public class ArtistTests
+  public class ArtistTests : IDisposable
   {
+      public void Dispose()
+    {
+      Artist.ClearAll();
+    }
+
     [TestMethod]
     public void ArtistConstructor_CreatesInstanceOfArtistWithOneName_String()
     {
